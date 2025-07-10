@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f6f8fa;
+        }
+        h2 {
+            color: #1a73e8;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #e9ecef;
+        }
+        ul {
+            margin-left: 20px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h2>📊 Prediction Result</h2>
+    <p><b>Pass/Fail:</b> {{ pass_result }}</p>
+    <p><b>Grade:</b> {{ grade_result }}</p>
+
+    <div class="section">
+        <h3>📅 Suggested Weekly Timetable</h3>
+        <table>
+            <tr>
+                <th>Day</th>
+                <th>4:00 PM – 6:00 PM</th>
+                <th>7:00 PM – 9:00 PM</th>
+            </tr>
+            {% for day in timetable %}
+            <tr>
+                <td>{{ day.day }}</td>
+                <td>{{ day.slot1 }}</td>
+                <td>{{ day.slot2 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    {% if recommended_books %}
+    <div class="section">
+        <h3>📚 Book Suggestions</h3>
+        <ul>
+            {% for book in recommended_books %}
+                <li>{{ book }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    {% if feedback %}
+    <div class="section">
+        <h3>📝 Feedback</h3>
+        <ul>
+            {% for msg in feedback %}
+                <li>{{ msg }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <a href="/">🔙 Back</a>
+</body>
+</html>
