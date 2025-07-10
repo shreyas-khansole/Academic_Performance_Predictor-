@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Academic Performance Predictor</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f6f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .box {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        .box h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .box input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .box button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .box button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <form action="/predict" method="POST" class="box">
+        <h2><b>Academic Performance Predictor</b></h2>
+
+        <!-- Subject Marks Inputs -->
+        <input type="number" name="English" placeholder="Marks in English" required>
+        <input type="number" name="Maths" placeholder="Marks in Maths" required>
+        <input type="number" name="Science" placeholder="Marks in Science" required>
+        <input type="number" name="SST" placeholder="Marks in SST" required>
+        <input type="number" name="Hindi" placeholder="Marks in Hindi" required>
+        <input type="number" name="GK" placeholder="Marks in GK" required>
+
+        <!-- Additional Inputs -->
+        <input type="number" step="0.1" name="study_hours" placeholder="Study Hours/Day" required>
+        <input type="number" step="0.1" name="distraction_time" placeholder="Distraction Time/Day" required>
+        <input type="number" step="0.1" name="sleep_time" placeholder="Sleep Time/Day" required>
+
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>
